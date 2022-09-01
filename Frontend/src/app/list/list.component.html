@@ -1,0 +1,22 @@
+<a routerLink="toAdd"><button>Add Person</button></a>
+
+<table>
+    <tr>
+      <td>Full Name</td>
+      <td>Age</td>
+      <td>Address</td>
+      <td>NumberStreet</td>
+      <td>Money</td>
+      <td></td>
+    </tr>
+
+    <tr *ngFor="let person of listOfPeople">
+      <th>{{person.lastname}}, {{person.name}}</th>
+      <th>{{person.age}}</th>
+      <th>{{person.address}}</th>
+      <th>{{person.streetNumber}}</th>
+      <th>{{person.money}}</th>
+      <th><button (click)="updatePerson(person.id)">Update</button></th>
+      <th><button (click)="deletePerson(person)">Delete</button></th>
+    </tr>
+</table>

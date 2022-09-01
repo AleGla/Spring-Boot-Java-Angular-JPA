@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "79aec1c7-58ee-495a-b64b-d8c4706e4fb0",
+		"name": "ListOfPersons",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAllPersons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/allPersons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allPersons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPersonByID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/findPerson",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findPerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddPerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Victor\",\r\n    \"lastname\" : \"Sullivan\",\r\n    \"age\" : \"40\",\r\n    \"money\" : 6000,\r\n    \"address\" : \"Fake Street\",\r\n    \"streetNumber\" : \"300\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/addPerson",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addPerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 5,\r\n    \"name\" : \"Patricio\",\r\n    \"lastname\" : \"Valiente\",\r\n    \"age\" : \"31\",\r\n    \"money\" : 5000,\r\n    \"address\" : \"fake street\",\r\n    \"streetNumber\" : \"500\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/updatePerson",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"updatePerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/deletePerson",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deletePerson"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
