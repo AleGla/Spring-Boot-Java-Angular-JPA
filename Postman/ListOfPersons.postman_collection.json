@@ -59,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\" : \"Victor\",\r\n    \"lastname\" : \"Sullivan\",\r\n    \"age\" : \"40\",\r\n    \"money\" : 6000,\r\n    \"address\" : \"Fake Street\",\r\n    \"streetNumber\" : \"300\"\r\n}",
+					"raw": "{\r\n    \"name\" : \"Mario\",\r\n    \"lastname\" : \"Diolpo\",\r\n    \"age\" : \"40\",\r\n    \"money\" : 500,\r\n    \"address\" : \"Fake Street\",\r\n    \"streetNumber\" : \"300\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -131,6 +131,222 @@
 					"port": "8080",
 					"path": [
 						"deletePerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orderLowToHighMoney",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orderLowToHighMoney",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orderLowToHighMoney"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orderHighToLowMoney",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orderHighToLowMoney",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orderHighToLowMoney"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orderLowToHighAge",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orderLowToHighAge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orderLowToHighAge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orderHighToLowAge",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orderHighToLowAge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orderHighToLowAge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findPersonByNationality",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nationality\" : \"argentina\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/findPersonByNationality",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findPersonByNationality"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findPersonByNationalityAndOrderLowToHigMoney",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nationality\" : \"argentina\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/findPersonByNationalityAndOrderLowToHighMoney",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findPersonByNationalityAndOrderLowToHighMoney"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findPersonByNationalityAndOrderHighToLowMoney",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nationality\" : \"argentina\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/findPersonByNationalityAndOrderHighToLowMoney",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findPersonByNationalityAndOrderHighToLowMoney"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findPersonByNationalityAndOrderHighToLowAge",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nationality\" : \"argentina\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/findPersonByNationalityAndOrderHighToLowAge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findPersonByNationalityAndOrderHighToLowAge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findPersonByNationalityAndOrderLowToHighAge",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nationality\" : \"argentina\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/findPersonByNationalityAndOrderLowToHighAge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findPersonByNationalityAndOrderLowToHighAge"
 					]
 				}
 			},
