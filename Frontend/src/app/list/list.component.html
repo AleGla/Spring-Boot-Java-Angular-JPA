@@ -1,9 +1,28 @@
 <a routerLink="toAdd"><button>Add Person</button></a>
+<br><br><br>
 
+<label>Order : </label>
+<button (click)="getList()">Normal</button>
+|
+<button (click)="setOrderMoneyLowToHigh()">Low to High (Money)</button>
+|
+<button (click)="setOrderMoneyHighToLow()">High to Low (Money)</button>
+|
+<button (click)="setOrderAgeLowToHigh()">Low to High (Age)</button>
+|
+<button (click)="setOrderAgeHighToLow()">High to Low (Age)</button>
+<br><br>
+
+<select #nationality (change)="onSelected()">
+  <option *ngFor="let person of listNationality" [ngValue]="person">{{person}}</option>
+</select>
+
+<br><br>
 <table>
     <tr>
       <td>Full Name</td>
       <td>Age</td>
+      <td>Nationality</td>
       <td>Address</td>
       <td>NumberStreet</td>
       <td>Money</td>
@@ -13,6 +32,7 @@
     <tr *ngFor="let person of listOfPeople">
       <th>{{person.lastname}}, {{person.name}}</th>
       <th>{{person.age}}</th>
+      <th>{{person.nationality}}</th>
       <th>{{person.address}}</th>
       <th>{{person.streetNumber}}</th>
       <th>{{person.money}}</th>

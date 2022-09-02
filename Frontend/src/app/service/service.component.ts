@@ -17,10 +17,18 @@ export class ServiceService {
   private PATH_ADD = "addPerson";
   private PATH_UPDATE = "updatePerson";
   private PATH_DELETE = "deletePerson";
-    
+  private PATH_ORDERLOWTOHIGHMONEY = "orderLowToHighMoney";
+  private PATH_ORDERHIGHTOLOWMONEY = "orderHighToLowMoney";
+  private PATH_ORDERLOWTOHIGHAGE = "orderLowToHighAge";
+  private PATH_ORDERHIGHTOLOWAGE = "orderHighToLowAge";
+  private PATH_FINDPERSONBYNATIONALITY = "findPersonByNationality";
+  private PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHMONEY = "findPersonByNationalityAndOrderLowToHighMoney";
+  private PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWMONEY = "findPersonByNationalityAndOrderHighToLowMoney";
+  private PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHAGE = "findPersonByNationalityAndOrderLowToHighAge";
+  private PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWAGE = "findPersonByNationalityAndOrderHighToLowAge";
 
   getAllPeople() {
-    return this.http.get<People[]>(this.URL + this.PATH_ALLPEOPLE);
+    return this.http.get<Object[]>(this.URL + this.PATH_ALLPEOPLE);
   }
 
   addPerson(obj: object){
@@ -39,8 +47,39 @@ export class ServiceService {
     return this.http.post(this.URL + this.PATH_DELETE, obj);
   }
 
-   
+   orderLowToHighMoney(){
+    return this.http.get<Object[]>(this.URL + this.PATH_ORDERLOWTOHIGHMONEY);
+   }
 
- 
+   orderHighToLowMoney(){
+    return this.http.get<Object[]>(this.URL + this.PATH_ORDERHIGHTOLOWMONEY);
+   }
 
+   orderLowToHighAge(){
+    return this.http.get<Object[]>(this.URL + this.PATH_ORDERLOWTOHIGHAGE);
+   }
+
+   orderHighToLowAge(){
+    return this.http.get<Object[]>(this.URL + this.PATH_ORDERHIGHTOLOWAGE);
+   }
+
+   findPersonByNationality(obj: object){
+    return this.http.post<Object>(this.URL + this.PATH_FINDPERSONBYNATIONALITY, obj);
+   }
+
+   findPersonByNationalityAndOrderLowToHighMoney(obj: object){
+    return this.http.post<Object>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHMONEY, obj);
+   }
+
+   findPersonByNationalityAndOrderHighToLowMoney(obj: object){
+    return this.http.post<Object>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWMONEY, obj);
+   }
+
+   findPersonByNationalityAndOrderLowToHighAge(obj: object){
+    return this.http.post<Object>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHAGE, obj);
+   }
+
+   findPersonByNationalityAndOrderHighToLowAge(obj: object){
+    return this.http.post<Object>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWAGE, obj);
+   }
 }
