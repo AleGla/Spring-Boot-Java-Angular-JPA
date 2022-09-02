@@ -1,5 +1,7 @@
 package com.ar.alegla.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ar.alegla.model.Message;
 import com.ar.alegla.model.Person;
 import com.ar.alegla.service.IPersonService;
-
-
 
 
 @RestController
@@ -79,5 +79,115 @@ public class PersonController {
 		return new ResponseEntity<>("The Person was deleted", HttpStatus.OK);
 	}
 
+	
+	@GetMapping(
+			value = "orderLowToHighMoney",
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> orderLowToHighMoney() throws Exception{
+			
+		List<Person> list = this.personService.orderLowToHighMoney();
+		
+		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
+		else return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@GetMapping(
+			value = "orderHighToLowMoney",
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> orderHighToLowMoney() throws Exception{
+		
+		List<Person> list = this.personService.orderHighToLowMoney();
+		
+		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
+		else return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@GetMapping(
+			value = "orderLowToHighAge",
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> orderLowToHighAge() throws Exception{
+		List<Person> list = this.personService.orderLowToHighAge();
+		
+		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
+		else return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@GetMapping(
+			value = "orderHighToLowAge",
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> orderHighToLowAge() throws Exception{
+		List<Person> list = this.personService.orderHighToLowAge();
+		
+		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
+		else return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@PostMapping(
+			value = "findPersonByNationality",
+			consumes = {MediaType.APPLICATION_JSON_VALUE},
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> findPersonByNationality(@RequestBody Person p) throws Exception{
+		
+		List<Person> list = this.personService.findPersonByNationality(p);
+		
+		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
+		else return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@PostMapping(
+			value = "findPersonByNationalityAndOrderLowToHighMoney",
+			consumes = {MediaType.APPLICATION_JSON_VALUE},
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> findPersonByNationalityAndOrderLowToHighMoney(@RequestBody Person p) throws Exception{
+		
+		List<Person> list = this.personService.findPersonByNationalityAndOrderLowToHighMoney(p);
+		
+		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
+		else return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@PostMapping(
+			value = "findPersonByNationalityAndOrderHighToLowMoney",
+			consumes = {MediaType.APPLICATION_JSON_VALUE},
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> findPersonByNationalityAndOrderHighToLowMoney(@RequestBody Person p) throws Exception{
+		
+		List<Person> list = this.personService.findPersonByNationalityAndOrderHighToLowMoney(p);
+		
+		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
+		else return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@PostMapping(
+			value = "findPersonByNationalityAndOrderLowToHighAge",
+			consumes = {MediaType.APPLICATION_JSON_VALUE},
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> findPersonByNationalityAndOrderLowToHighAge(@RequestBody Person p) throws Exception{
+		
+		List<Person> list = this.personService.findPersonByNationalityAndOrderLowToHighAge(p);
+		
+		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
+		else return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@PostMapping(
+			value = "findPersonByNationalityAndOrderHighToLowAge",
+			consumes = {MediaType.APPLICATION_JSON_VALUE},
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> findPersonByNationalityAndOrderHighToLowAge(@RequestBody Person p) throws Exception{
+		
+		List<Person> list = this.personService.findPersonByNationalityAndOrderHighToLowAge(p);
+		
+		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
+		else return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
 	
 }

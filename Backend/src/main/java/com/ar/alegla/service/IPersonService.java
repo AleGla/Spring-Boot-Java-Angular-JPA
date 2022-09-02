@@ -66,9 +66,7 @@ public class IPersonService implements PersonService{
 	public Integer update(Person e) throws Exception {
 		// TODO Auto-generated method stub
 		try {
-			
-			//Optional<Person> person = this.peopleRepository.findById(e.getId());
-			//this.peopleRepository.save(person.get());
+						
 			Integer changed = this.peopleRepository.updatePerson(e.getId(), e.getName(), e.getLastname(), e.getAge(), e.getMoney(), e.getAddress(), e.getStreetNumber());
 			if(changed != 0) log.info("The Person was updated successfully");
 			else log.info("There was a mistake to update the Person");
@@ -91,6 +89,134 @@ public class IPersonService implements PersonService{
 			throw new Exception(ex.getMessage());
 		}
 	}
+
+	@Override
+	@Transactional
+	public List<Person> orderLowToHighMoney() throws Exception {
+		// TODO Auto-generated method stub
+			
+		try {
+			List<Person> listPersonOrdered = this.peopleRepository.getOrderLowToHighMoney();
+			log.info("The List was ordered for quantity of money (Low to High)");
+			return listPersonOrdered;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}		
+	}
+
+	@Override
+	@Transactional
+	public List<Person> orderHighToLowMoney() throws Exception {
+		// TODO Auto-generated method stub
+		
+		try {
+			List<Person> listPersonOrdered = this.peopleRepository.getOrderHighToLowMoney();
+			log.info("The List was ordered for quantity of money (High to Low)");
+			return listPersonOrdered;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
+	@Override
+	@Transactional
+	public List<Person> orderLowToHighAge() throws Exception {
+		// TODO Auto-generated method stub
+		
+		try {
+		List<Person> list = this.peopleRepository.getOrderLowToHighAge();
+		log.info("The List was ordered for age (Low to High)");
+		return list;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
+	@Override
+	@Transactional
+	public List<Person> orderHighToLowAge() throws Exception {
+		// TODO Auto-generated method stub
+		
+		try {
+			List<Person> list = this.peopleRepository.getOrderHighToLowAge();
+			log.info("The List was ordered for age (High to Low)");
+			return list;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
+	@Override
+	@Transactional
+	public List<Person> findPersonByNationality(Person p) throws Exception {
+		// TODO Auto-generated method stub
+		
+		try {
+			List<Person> list = this.peopleRepository.findPersonByNationality(p.getNationality());
+			return list;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
+	@Override
+	@Transactional
+	public List<Person> findPersonByNationalityAndOrderLowToHighMoney(Person p) throws Exception {
+		// TODO Auto-generated method stub
+		
+		try {
+			List<Person> list = this.peopleRepository.findPersonByNationalityAndOrderLowToHighMoney(p.getNationality());
+			return list;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
+	@Override
+	@Transactional
+	public List<Person> findPersonByNationalityAndOrderHighToLowMoney(Person p) throws Exception {
+		// TODO Auto-generated method stub
+		try {
+			List<Person> list = this.peopleRepository.findPersonByNationalityAndOrderHighToLowMoney(p.getNationality());
+			return list;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+		
+	}
+
+	@Override
+	@Transactional
+	public List<Person> findPersonByNationalityAndOrderLowToHighAge(Person p) throws Exception {
+		// TODO Auto-generated method stub
+		try {
+			List<Person> list = this.peopleRepository.findPersonByNationalityAndOrderLowToHighAge(p.getNationality());
+			return list;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
+	@Override
+	@Transactional
+	public List<Person> findPersonByNationalityAndOrderHighToLowAge(Person p) throws Exception {
+		// TODO Auto-generated method stub
+		try {
+			List<Person> list = this.peopleRepository.findPersonByNationalityAndOrderHighToLowAge(p.getNationality());
+			return list;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	

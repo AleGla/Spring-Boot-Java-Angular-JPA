@@ -41,6 +41,9 @@ public class Person {
 	
 	@Column(name="street_number")
 	private String streetNumber;
+	
+	@Column(name="nationality")
+	private String nationality;
 
 	public Integer getId() {
 		return id;
@@ -97,6 +100,16 @@ public class Person {
 	public void setStreetNumber(String streetNumber) {
 		this.streetNumber = streetNumber;
 	}
+
+	public String getNationality() {
+		return nationality;
+	}
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+	
+	
 	
 	
 }

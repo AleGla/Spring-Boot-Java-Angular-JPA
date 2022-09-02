@@ -1,5 +1,7 @@
 package com.ar.alegla.service;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -16,5 +18,30 @@ public interface PersonRepository extends JpaRepository<Person, Integer>{
 	public Integer updatePerson(@Param("id")Integer id,@Param("name") String name,@Param("lastname") String lastname,@Param("age") String age,@Param("money") Integer money,@Param("address") String address,@Param("streetNumber") String streetNumber) throws Exception;
 	
 	
+	@Query("Select p from Person as p order by p.money")
+	public List<Person> getOrderLowToHighMoney() throws Exception;
 	
+	@Query("Select p from Person as p order by p.money DESC")
+	public List<Person> getOrderHighToLowMoney() throws Exception;
+	
+	@Query("Select p from Person as p order by p.age")
+	public List<Person> getOrderLowToHighAge() throws Exception;
+	
+	@Query("Select p from Person as p order by p.age DESC")
+	public List<Person> getOrderHighToLowAge() throws Exception;
+	
+	@Query("Select p from Person as p where nationality = :nationality")
+	public List<Person> findPersonByNationality(@Param("nationality") String nationality) throws Exception;
+	
+	@Query("Select p from Person as p where nationality = :nationality order by p.money")
+	public List<Person> findPersonByNationalityAndOrderLowToHighMoney(@Param("nationality") String nationality) throws Exception;
+	
+	@Query("Select p from Person as p where nationality = :nationality order by p.money DESC")
+	public List<Person> findPersonByNationalityAndOrderHighToLowMoney(@Param("nationality") String nationality) throws Exception;
+	
+	@Query("Select p from Person as p where nationality = :nationality order by p.age")
+	public List<Person> findPersonByNationalityAndOrderLowToHighAge(@Param("nationality") String nationality) throws Exception;
+	
+	@Query("Select p from Person as p where nationality = :nationality order by p.age DESC")
+	public List<Person> findPersonByNationalityAndOrderHighToLowAge(@Param("nationality") String nationality) throws Exception;
 }
