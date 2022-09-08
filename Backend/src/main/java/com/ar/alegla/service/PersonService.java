@@ -33,4 +33,8 @@ public List<Person> findAll() throws Exception;
 	public List<Person> findPersonByNationalityAndOrderLowToHighAge(Person p) throws Exception;
 	
 	public List<Person> findPersonByNationalityAndOrderHighToLowAge(Person p) throws Exception;
+	
+	public String moneyTransfers(Integer idSender, Integer idReceiver, Integer money) throws Exception;
+	
+	public List<Person> findAllAvailablePersonToTransfer(Person p) throws Exception;
 }

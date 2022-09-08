@@ -20,6 +20,7 @@
 <br><br>
 <table>
     <tr>
+      <td>DNI</td>
       <td>Full Name</td>
       <td>Age</td>
       <td>Nationality</td>
@@ -30,6 +31,7 @@
     </tr>
 
     <tr *ngFor="let person of listOfPeople">
+      <th>{{person.dni}}</th>
       <th>{{person.lastname}}, {{person.name}}</th>
       <th>{{person.age}}</th>
       <th>{{person.nationality}}</th>
@@ -38,5 +40,6 @@
       <th>{{person.money}}</th>
       <th><button (click)="updatePerson(person.id)">Update</button></th>
       <th><button (click)="deletePerson(person)">Delete</button></th>
+      <th><button (click)="transferMoney(person.id)">Transfer Money</button></th>
     </tr>
 </table>

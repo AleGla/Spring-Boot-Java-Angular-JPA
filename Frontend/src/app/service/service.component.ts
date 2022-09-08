@@ -26,6 +26,8 @@ export class ServiceService {
   private PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWMONEY = "findPersonByNationalityAndOrderHighToLowMoney";
   private PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHAGE = "findPersonByNationalityAndOrderLowToHighAge";
   private PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWAGE = "findPersonByNationalityAndOrderHighToLowAge";
+  private PATH_FINDAVAILABLEPERSONTOTRANSFER = "findPersonsAvailableToTransfer";
+  private PATH_MONEYTRANSFER = "moneytransfer";
 
   getAllPeople() {
     return this.http.get<Object[]>(this.URL + this.PATH_ALLPEOPLE);
@@ -82,4 +84,14 @@ export class ServiceService {
    findPersonByNationalityAndOrderHighToLowAge(obj: object){
     return this.http.post<Object>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWAGE, obj);
    }
+
+   findPersonsAvailableToTransfer(obj: object){
+    return this.http.post<Object[]>(this.URL + this.PATH_FINDAVAILABLEPERSONTOTRANSFER, obj);
+   }
+
+   moneyTransfer(obj: object){
+      return this.http.post(this.URL + this.PATH_MONEYTRANSFER, obj);
+   }
+   
+   
 }

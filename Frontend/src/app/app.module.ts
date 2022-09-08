@@ -10,6 +10,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 
 
@@ -19,7 +20,8 @@ import { UpdateComponent } from './update/update.component';
     HomepageComponent,
     ListComponent,
     AddComponent,
-    UpdateComponent
+    UpdateComponent,
+    TransferComponent
   ],
   imports: [
     BrowserModule,

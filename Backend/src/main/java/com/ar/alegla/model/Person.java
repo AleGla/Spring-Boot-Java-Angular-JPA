@@ -44,6 +44,9 @@ public class Person {
 	
 	@Column(name="nationality")
 	private String nationality;
+	
+	@Column(name="dni")
+	private String dni;
 
 	public Integer getId() {
 		return id;
@@ -107,6 +110,14 @@ public class Person {
 
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 	
 	

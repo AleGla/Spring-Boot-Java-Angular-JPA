@@ -1,5 +1,6 @@
 package com.ar.alegla.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ar.alegla.function.MoneyTransfer;
 import com.ar.alegla.model.Person;
 
 @Service
@@ -67,7 +69,7 @@ public class IPersonService implements PersonService{
 		// TODO Auto-generated method stub
 		try {
 						
-			Integer changed = this.peopleRepository.updatePerson(e.getId(), e.getName(), e.getLastname(), e.getAge(), e.getMoney(), e.getAddress(), e.getStreetNumber());
+			Integer changed = this.peopleRepository.updatePerson(e.getId(), e.getName(), e.getLastname(), e.getAge(), e.getMoney(), e.getAddress(), e.getStreetNumber(), e.getNationality() , e.getDni());
 			if(changed != 0) log.info("The Person was updated successfully");
 			else log.info("There was a mistake to update the Person");
 			
@@ -204,6 +206,50 @@ public class IPersonService implements PersonService{
 		try {
 			List<Person> list = this.peopleRepository.findPersonByNationalityAndOrderHighToLowAge(p.getNationality());
 			return list;
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
+	@Override
+	@Transactional
+	public String moneyTransfers(Integer idSender, Integer idReceiver, Integer money) throws Exception {		
+		// TODO Auto-generated method stub
+		
+		try {
+			Optional<Person> sender = this.peopleRepository.findById(idSender);
+			Optional<Person> receiver = this.peopleRepository.findById(idReceiver);
+	
+			HashMap<String, Person> operation = MoneyTransfer.sendMoney(sender.get(), receiver.get(), money);
+			
+			
+			if(operation == null) return "You don't have sufficient money in your account to do the operation";
+			
+			Integer idSenderToUpdate = operation.get("sender").getId();
+			Integer idReceiverToUpdate = operation.get("receiver").getId();
+			Integer senderMoneyTotalToUpdate = operation.get("sender").getMoney();
+			Integer receiverMoneyTotalToUpdate = operation.get("receiver").getMoney();
+
+			Integer rowsChanged = this.peopleRepository.moneyTransfers(idSenderToUpdate, idReceiverToUpdate, senderMoneyTotalToUpdate, receiverMoneyTotalToUpdate);
+			
+			if(rowsChanged == 2) return "ok";
+			return "Has been an error to try update the data in the database";
+		}catch(Exception ex) {
+			throw new Exception(ex.getMessage());
+		}
+	}
+
+	@Override
+	public List<Person> findAllAvailablePersonToTransfer(Person p) throws Exception {
+		// TODO Auto-generated method stub
+		
+		try {
+			
+			List<Person> list = this.peopleRepository.findAllAvailablePersonToTransfer(p.getId());
+			
+			if(list == null) return null;
+			else return list;
+			
 		}catch(Exception ex) {
 			throw new Exception(ex.getMessage());
 		}

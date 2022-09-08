@@ -14,9 +14,11 @@ export class UpdateComponent implements OnInit {
   constructor(private service: ServiceService, private router: Router,  private formBuilder: FormBuilder, private _route: ActivatedRoute) { }
 
   UpdateForm = this.formBuilder.group({
+    DNI : '',
     name : '',
     lastname : '',
     age : '',
+    nationality : '',
     address : '',
     streetnumber : '',
     money : ''
@@ -51,9 +53,11 @@ export class UpdateComponent implements OnInit {
         this.dataResponse = response;                  
         
         this.UpdateForm.patchValue({
+            DNI : this.dataResponse.dni,
             name : this.dataResponse.name,
             lastname : this.dataResponse.lastname,
             age : this.dataResponse.age,
+            nationality : this.dataResponse.nationality,
             address : this.dataResponse.address,
             streetnumber : this.dataResponse.streetNumber,
             money : this.dataResponse.money
@@ -66,12 +70,14 @@ export class UpdateComponent implements OnInit {
   createRequesJson(): void{ 
    this.json = {
                   "id" : this.dataResponse.id,
-                  "name" : this.UpdateForm.value.name,
-                  "lastname" : this.UpdateForm.value.lastname,
+                  "dni" : this.UpdateForm.value.DNI,
+                  "name" : (this.UpdateForm.value.name).toUpperCase(),
+                  "lastname" : (this.UpdateForm.value.lastname).toUpperCase(),
                   "age" : (this.UpdateForm.value.age).toString(),
                   "money" : this.UpdateForm.value.money,
-                  "address" : this.UpdateForm.value.address,
-                  "streetNumber" : (this.UpdateForm.value.streetnumber).toString()
+                  "address" : (this.UpdateForm.value.address).toUpperCase(),
+                  "streetNumber" : (this.UpdateForm.value.streetnumber).toString(),
+                  "nationality" : (this.UpdateForm.value.nationality).toUpperCase()
              }
  
    }

@@ -3,14 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddComponent } from './add/add.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ListComponent } from './list/list.component';
+import { TransferComponent } from './transfer/transfer.component';
 import { UpdateComponent } from './update/update.component';
 
 const routes: Routes = [
   {path: "", component:HomepageComponent},
   {path: "toList", component: ListComponent},
   {path: "toList/toAdd", component: AddComponent},
-  {path: "toList/toUpdate", component: UpdateComponent}
-
+  {path: "toList/toUpdate", component: UpdateComponent},
+  {path: "toList/toTransfer", component: TransferComponent}
 ];
 
 @NgModule({

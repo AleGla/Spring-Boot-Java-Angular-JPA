@@ -133,7 +133,11 @@ export class ListComponent implements OnInit {
 
   
 
-  
+  transferMoney(id: number){
+    console.log(id);
+    this.router.navigate(['toList/toTransfer', {id: id}]);
+    window.scrollTo(0, 0);
+  }
 
   
 

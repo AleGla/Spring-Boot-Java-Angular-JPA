@@ -59,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\" : \"Mario\",\r\n    \"lastname\" : \"Diolpo\",\r\n    \"age\" : \"40\",\r\n    \"money\" : 500,\r\n    \"address\" : \"Fake Street\",\r\n    \"streetNumber\" : \"300\"\r\n}",
+					"raw": "{\r\n    \"dni\" : \"40912041\",\r\n    \"name\" : \"Mario\",\r\n    \"lastname\" : \"Diolpo\",\r\n    \"age\" : \"40\",\r\n    \"nationality\" : \"argentina\",\r\n    \"money\" : 500,\r\n    \"address\" : \"Fake Street\",\r\n    \"streetNumber\" : \"300\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -347,6 +347,62 @@
 					"port": "8080",
 					"path": [
 						"findPersonByNationalityAndOrderLowToHighAge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MoneyTransfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sender\": {\r\n        \"id\" : 12       \r\n    },\r\n    \"receiver\": {\r\n        \"id\" : 11\r\n    },\r\n    \"money\" : 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/moneytransfer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"moneytransfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "personsAvailableToTransfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/findPersonsAvailableToTransfer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findPersonsAvailableToTransfer"
 					]
 				}
 			},

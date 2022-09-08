@@ -20,7 +20,11 @@ export class AppComponent {
   }
 
   Update(){
-    this.router.navigate(["toUpdate"])
+    this.router.navigate(["toUpdate"]);
+  }
+
+  Transfer(){
+    this.router.navigate(["toTransfer"]);
   }
 
 

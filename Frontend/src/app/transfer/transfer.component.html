@@ -1,0 +1,30 @@
+<form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+
+  <label>Name: </label>  <input type="text"  formControlName="senderName" readonly/> 
+  <br/><br/><br/>     
+  <label>Lastname: </label>  <input type="text"  formControlName="senderLastname" readonly/>          
+  <br/><br/><br/>                                                                                       
+  <label>Money available: </label>  <input type="number"  formControlName="senderMoneyAvailable" readonly/> 
+  <br/><br/><br/>  
+
+  <label>Money To Transfer: </label><br/><input type="number" formControlName="senderMoneyToTransfer" />
+  <br/><br/><br/> 
+
+  <label>-----TRANSFER MONEY TO------</label>
+  <br/><br/><br/>
+
+
+  <label>Person </label><select #receiver (change)="onSelected()">
+    <option *ngFor="let person of listPersonAvailableToTransfer" [ngValue]="person">{{person}}</option>
+  </select>
+  <br/><br/><br/>
+
+  <label>Name: </label>  <input type="text"  formControlName="receiverName" readonly/> 
+  <br/><br/><br/>     
+  <label>Lastname: </label>  <input type="text"  formControlName="receiverLastname" readonly/>          
+  <br/><br/><br/> 
+
+  <br/><br/><br/>
+<button class="button" type="submit">Transfer Money</button>
+
+</form>

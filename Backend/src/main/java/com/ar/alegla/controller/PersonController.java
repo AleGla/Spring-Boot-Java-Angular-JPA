@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ar.alegla.function.MoneyTransfer;
 import com.ar.alegla.model.Message;
+import com.ar.alegla.model.MoneyToTransfer;
 import com.ar.alegla.model.Person;
 import com.ar.alegla.service.IPersonService;
 
@@ -32,7 +34,10 @@ public class PersonController {
 			value = "allPersons",
 			produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<Object> getAllPeople() throws Exception{
-		return new ResponseEntity<>(this.personService.findAll(), HttpStatus.OK);
+		List<Person> list = this.personService.findAll();
+		
+		if(list != null) return new ResponseEntity<>(this.personService.findAll(), HttpStatus.OK);
+		else return new ResponseEntity<>(new Message("The database is empty"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	
@@ -188,6 +193,34 @@ public class PersonController {
 		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
 		else return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
+	
+	@PostMapping(
+			value = "moneytransfer",
+			consumes = {MediaType.APPLICATION_JSON_VALUE},
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> moneyTransfer(@RequestBody MoneyToTransfer dataToTransfer) throws Exception{
+			
+		String operation = this.personService.moneyTransfers(dataToTransfer.getSender().getId(), dataToTransfer.getReceiver().getId(), dataToTransfer.getMoney());
+		
+		if(operation.equalsIgnoreCase("ok")) return new ResponseEntity<>(new Message(operation), HttpStatus.OK);
+		return new ResponseEntity<>(new Message("The Operation was done correctly"), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@PostMapping(
+			value = "findPersonsAvailableToTransfer",
+			consumes = {MediaType.APPLICATION_JSON_VALUE},
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Object> listOfPersonAvailableToTransfer(@RequestBody Person p) throws Exception{
+		
+		List<Person> list = this.personService.findAllAvailablePersonToTransfer(p);
+		
+		if(list != null) return new ResponseEntity<>(list, HttpStatus.OK);
+		else return new ResponseEntity<>(new Message("The database is empty"), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
 	
 	
 }
