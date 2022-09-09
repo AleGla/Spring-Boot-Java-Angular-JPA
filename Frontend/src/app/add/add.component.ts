@@ -14,12 +14,14 @@ export class AddComponent implements OnInit {
   constructor(private service: ServiceService, private router: Router,  private formBuilder: FormBuilder) { }
 
   AddForm = this.formBuilder.group({
+    dni : '',
     name : '',
     lastname : '',
     age : '',
     address : '',
     streetnumber : '',
-    money : ''
+    money : '',
+    nationality : ''
   })
 
   ngOnInit() {
@@ -28,12 +30,14 @@ export class AddComponent implements OnInit {
 
   createRequesJson(){ 
    return   {
-                 "name" : this.AddForm.value.name,
-                 "lastname" : this.AddForm.value.lastname,
+                 "dni" : this.AddForm.value.dni,
+                 "name" : (this.AddForm.value.name).toUpperCase(),
+                 "lastname" : (this.AddForm.value.lastname).toUpperCase(),
                  "age" : (this.AddForm.value.age).toString(),
                  "money" : this.AddForm.value.money,
-                 "address" : this.AddForm.value.address,
-                 "streetNumber" : (this.AddForm.value.streetnumber).toString()
+                 "address" : (this.AddForm.value.address).toUpperCase(),
+                 "streetNumber" : (this.AddForm.value.streetnumber).toString(),
+                 "nationality" : (this.AddForm.value.nationality).toUpperCase()
             }
 
   }
@@ -41,8 +45,8 @@ export class AddComponent implements OnInit {
 onSubmit(){
   const  json = this.createRequesJson();
   this.addPerson(json);
-  this.router.navigate(["toList"]);
   console.log("REWUEST =>" +  this.createRequesJson());
+  this.router.navigate([""]); 
 }
 
 

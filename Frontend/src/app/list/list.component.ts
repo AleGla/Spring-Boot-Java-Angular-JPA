@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   private listOfPeople : any
   private listNationality = [];  
   private json: object;
+  private search: boolean;
   constructor(private service: ServiceService, private router: Router, private fb: FormBuilder) { }
 
   
@@ -34,8 +35,11 @@ export class ListComponent implements OnInit {
       this.listOfPeople.forEach((values) => {
           if(!this.listNationality.includes(values.nationality)) this.listNationality.push(values.nationality);
       })
-      if(this.nationalitySelected.nativeElement.value !== ""){
+      if(this.nationalitySelected.nativeElement.value !== "" && !(this.search)){
+        console.log("SECOND")
         this.onSelected();
+      }else{
+        this.search = false;
       }        
     }
         ) 
@@ -45,7 +49,7 @@ export class ListComponent implements OnInit {
 
   updatePerson(id: number){
     console.log(id);
-    this.router.navigate(['toList/toUpdate', {id: id}]);
+    this.router.navigate(['toUpdate', {id: id}]);
     window.scrollTo(0, 0);
   }
 
@@ -121,7 +125,9 @@ export class ListComponent implements OnInit {
  
   onSelected(): void{
     if(this.nationalitySelected.nativeElement.value === "All"){
+      console.log("PRIMERO")
         this.getList();
+        this.search = true;
     }else{ 
         this.json = { "nationality" : this.nationalitySelected.nativeElement.value};    
         this.listOfPeople=[];
@@ -135,7 +141,7 @@ export class ListComponent implements OnInit {
 
   transferMoney(id: number){
     console.log(id);
-    this.router.navigate(['toList/toTransfer', {id: id}]);
+    this.router.navigate(['toTransfer', {id: id}]);
     window.scrollTo(0, 0);
   }
 

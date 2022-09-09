@@ -1,23 +1,47 @@
 <form [formGroup]="UpdateForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+  <label>DNI: </label>  
+  <input type="text" formControlName="DNI" class="form-control is-valid" id="validationServer01"/>
+    </div>
+  
+  <div class="col-md-4 mb-3">
+  <label>Name: </label> 
+   <input type="text"  formControlName="name" class="form-control is-valid" id="validationServer02" /> 
+    </div>
+  
+  <div class="col-md-4 mb-3">
+  <label>Lastname: </label>  
+  <input type="text"  formControlName="lastname" class="form-control is-valid" id="validationServer03"/> 
+</div>
+  
+  <div class="col-md-4 mb-3">
+  <label>Age: </label>  
+  <input type="number"  formControlName="age" class="form-control is-valid" id="validationServer04"/> 
+</div>
 
-  <label>DNI: </label>  <input type="text" formControlName="DNI"/>
-  <br/><br/><br/>
-  <label>Name: </label>  <input type="text"  formControlName="name"/> 
-  <br/><br/><br/>
-  <label>Lastname: </label>  <input type="text"  formControlName="lastname"/> 
-  <br/><br/><br/>
-  <label>Age: </label>  <input type="number"  formControlName="age"/> 
-  <br/><br/><br/>  
-  <label>Nationality: </label>  <input type="text"  formControlName="nationality"/> 
-  <br/><br/><br/>
-  <label>Address: </label>  <input type="text"  formControlName="address"/> 
-  <br/><br/><br/>
-  <label>Street Number: </label>  <input type="number"  formControlName="streetnumber"/> 
-  <br/><br/><br/>
-  <label>Money: </label>  <input type="number"  formControlName="money"/> 
-  <br/><br/><br/>  
+  <div class="col-md-4 mb-3">
+  <label>Nationality: </label>  
+  <input type="text"  formControlName="nationality" class="form-control is-valid" id="validationServer05"/> 
+</div>
 
+  <div class="col-md-4 mb-3">
+  <label>Address: </label>  
+  <input type="text"  formControlName="address" class="form-control is-valid" id="validationServer06"/> 
+</div>
+  
+  <div class="col-md-4 mb-3">
+  <label>Street Number: </label>  
+  <input type="number"  formControlName="streetnumber" class="form-control is-valid" id="validationServer07"/> 
+</div>
+  
+  <div class="col-md-4 mb-3">
+  <label>Money: </label> 
+   <input type="number"  formControlName="money" class="form-control is-valid" id="validationServer08"/> 
+</div>
 
-<button class="button" type="submit">Update Person</button>
+  </div>
+
+<button class="btn btn-primary"  type="submit">Update Person</button>
 
 </form>

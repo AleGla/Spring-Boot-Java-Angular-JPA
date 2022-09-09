@@ -1,30 +1,43 @@
 <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+  <label>Name: </label> 
+   <input type="text"  formControlName="senderName" readonly/> 
+</div>
+    
+    <div class="col-md-4 mb-3">
+  <label>Lastname: </label>  
+  <input type="text"  formControlName="senderLastname" readonly/>          
+</div>
+  
+  <div class="col-md-4 mb-3">
+  <label>Money available: </label> 
+   <input type="number"  formControlName="senderMoneyAvailable" readonly/> 
+</div>
+   
+  <div class="col-md-4 mb-3">
+  <label>Money To Transfer: </label> 
+  <input type="number" formControlName="senderMoneyToTransfer" />
+  </div>
 
-  <label>Name: </label>  <input type="text"  formControlName="senderName" readonly/> 
-  <br/><br/><br/>     
-  <label>Lastname: </label>  <input type="text"  formControlName="senderLastname" readonly/>          
-  <br/><br/><br/>                                                                                       
-  <label>Money available: </label>  <input type="number"  formControlName="senderMoneyAvailable" readonly/> 
-  <br/><br/><br/>  
-
-  <label>Money To Transfer: </label><br/><input type="number" formControlName="senderMoneyToTransfer" />
-  <br/><br/><br/> 
-
+  </div>
   <label>-----TRANSFER MONEY TO------</label>
   <br/><br/><br/>
 
-
-  <label>Person </label><select #receiver (change)="onSelected()">
+  
+  <label>Person </label> <div class="btn-group dropright"> <select #receiver (change)="onSelected()" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <option *ngFor="let person of listPersonAvailableToTransfer" [ngValue]="person">{{person}}</option>
   </select>
+  </div>
   <br/><br/><br/>
 
-  <label>Name: </label>  <input type="text"  formControlName="receiverName" readonly/> 
+  <label>DNI: </label>  <input type="text"  formControlName="receiverDNI" readonly required/> 
+  <br/><br/><br/>
+  <label>Name: </label>  <input type="text"  formControlName="receiverName" readonly required/> 
   <br/><br/><br/>     
-  <label>Lastname: </label>  <input type="text"  formControlName="receiverLastname" readonly/>          
+  <label>Lastname: </label>  <input type="text"  formControlName="receiverLastname" readonly required/>          
   <br/><br/><br/> 
 
-  <br/><br/><br/>
-<button class="button" type="submit">Transfer Money</button>
+<button class="btn btn-primary" type="submit">Transfer Money</button>
 
 </form>

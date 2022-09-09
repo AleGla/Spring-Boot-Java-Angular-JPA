@@ -36,7 +36,7 @@ export class UpdateComponent implements OnInit {
     this.createRequesJson();
       this.updatePerson();
 
-      this.router.navigate(["toList"]);
+      this.router.navigate([""]);
   }
 
   updatePerson(){

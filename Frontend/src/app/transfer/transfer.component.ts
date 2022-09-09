@@ -26,6 +26,7 @@ export class TransferComponent implements OnInit {
     senderLastname : '',
     senderMoneyAvailable : '',
     senderMoneyToTransfer : '',
+    receiverDNI : '',
     receiverName : '',
     receiverLastname : ''
   })
@@ -76,7 +77,7 @@ export class TransferComponent implements OnInit {
       console.log("Response to Transfer => " + resp);
     });
 
-    this.router.navigate(['toList']);
+    this.router.navigate(['']);
   }
 
 
@@ -97,6 +98,7 @@ export class TransferComponent implements OnInit {
         dataReceiverPerson = response;
 
         this.transferForm.patchValue({
+          receiverDNI : dataReceiverPerson.dni,
           receiverName : dataReceiverPerson.name,
           receiverLastname : dataReceiverPerson.lastname
         })

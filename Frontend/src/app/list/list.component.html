@@ -1,24 +1,28 @@
-<a routerLink="toAdd"><button>Add Person</button></a>
+<a routerLink="toAdd"><button class="btn btn-primary">Add Person</button></a>
 <br><br><br>
 
 <label>Order : </label>
-<button (click)="getList()">Normal</button>
+<button class="btn btn-secondary" (click)="getList()">Normal</button>
 |
-<button (click)="setOrderMoneyLowToHigh()">Low to High (Money)</button>
+<button class="btn btn-secondary" (click)="setOrderMoneyLowToHigh()">Low to High (Money)</button>
 |
-<button (click)="setOrderMoneyHighToLow()">High to Low (Money)</button>
+<button class="btn btn-secondary" (click)="setOrderMoneyHighToLow()">High to Low (Money)</button>
 |
-<button (click)="setOrderAgeLowToHigh()">Low to High (Age)</button>
+<button class="btn btn-secondary" (click)="setOrderAgeLowToHigh()">Low to High (Age)</button>
 |
-<button (click)="setOrderAgeHighToLow()">High to Low (Age)</button>
+<button class="btn btn-secondary" (click)="setOrderAgeHighToLow()">High to Low (Age)</button>
 <br><br>
 
-<select #nationality (change)="onSelected()">
+<div class="btn-group dropright">
+<select #nationality (change)="onSelected()" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <option *ngFor="let person of listNationality" [ngValue]="person">{{person}}</option>
 </select>
+</div>
 
-<br><br>
-<table>
+<br/><br/><br/> 
+
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <td>DNI</td>
       <td>Full Name</td>
@@ -28,8 +32,11 @@
       <td>NumberStreet</td>
       <td>Money</td>
       <td></td>
+      <td></td>
+      <td></td>
     </tr>
-
+  </thead>
+  <tbody>
     <tr *ngFor="let person of listOfPeople">
       <th>{{person.dni}}</th>
       <th>{{person.lastname}}, {{person.name}}</th>
@@ -38,8 +45,9 @@
       <th>{{person.address}}</th>
       <th>{{person.streetNumber}}</th>
       <th>{{person.money}}</th>
-      <th><button (click)="updatePerson(person.id)">Update</button></th>
-      <th><button (click)="deletePerson(person)">Delete</button></th>
-      <th><button (click)="transferMoney(person.id)">Transfer Money</button></th>
+      <th><button class="btn btn-warning" (click)="updatePerson(person.id)">Update</button></th>
+      <th><button class="btn btn-danger" (click)="deletePerson(person)">Delete</button></th>
+      <th><button class="btn btn-success" (click)="transferMoney(person.id)">Transfer Money</button></th>
     </tr>
+  </tbody>
 </table>
