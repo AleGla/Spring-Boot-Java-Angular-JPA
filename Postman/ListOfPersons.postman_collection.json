@@ -6,6 +6,490 @@
 	},
 	"item": [
 		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "GetAllPersons(Gateway)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPersonByID (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/find",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"find"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddPerson (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dni\" : \"40912041\",\r\n    \"name\" : \"Lucas\",\r\n    \"lastname\" : \"Testing\",\r\n    \"age\" : \"100\",\r\n    \"nationality\" : \"argentina\",\r\n    \"money\" : 51100,\r\n    \"address\" : \"Fake Street\",\r\n    \"streetNumber\" : \"9800\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePerson (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 5,\r\n    \"name\" : \"Patricio\",\r\n    \"lastname\" : \"Valiente\",\r\n    \"age\" : \"31\",\r\n    \"money\" : 5000,\r\n    \"address\" : \"fake street\",\r\n    \"streetNumber\" : \"500\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/updatePerson",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"updatePerson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePerson (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderLowToHighMoney (Gateway)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/order/money/lowtohigh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"order",
+								"money",
+								"lowtohigh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderHighToLowMoney (Gateway)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/order/money/hightolow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"order",
+								"money",
+								"hightolow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderLowToHighAge (Gateway)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/order/age/lowtohigh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"order",
+								"age",
+								"lowtohigh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderHighToLowAge (Gateway)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/order/age/hightolow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"order",
+								"age",
+								"hightolow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findPersonByNationality (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nationality\" : \"argentina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/find/by/nationality",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"find",
+								"by",
+								"nationality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findPersonByNationalityAndOrderLowToHigMoney (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nationality\" : \"argentina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/order/money/lowtohigh/and/nationality",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"order",
+								"money",
+								"lowtohigh",
+								"and",
+								"nationality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findPersonByNationalityAndOrderHighToLowMoney (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nationality\" : \"argentina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/order/money/hightolow/and/nationality",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"order",
+								"money",
+								"hightolow",
+								"and",
+								"nationality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findPersonByNationalityAndOrderHighToLowAge (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nationality\" : \"argentina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/api/service/person/order/age/lowTohigh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"api",
+								"service",
+								"person",
+								"order",
+								"age",
+								"lowTohigh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findPersonByNationalityAndOrderLowToHighAge (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nationality\" : \"argentina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/order/age/lowtohigh/and/nationality",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"order",
+								"age",
+								"lowtohigh",
+								"and",
+								"nationality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MoneyTransfer (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sender\": {\r\n        \"id\" : 12       \r\n    },\r\n    \"receiver\": {\r\n        \"id\" : 11\r\n    },\r\n    \"money\" : 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/transfer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "personsAvailableToTransfer (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/service/person/available/transfer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"service",
+								"person",
+								"available",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "GetAllPersons",
 			"request": {
 				"method": "GET",
@@ -150,25 +634,6 @@
 					"port": "8080",
 					"path": [
 						"orderLowToHighMoney"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "orderHighToLowMoney",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/orderHighToLowMoney",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"orderHighToLowMoney"
 					]
 				}
 			},

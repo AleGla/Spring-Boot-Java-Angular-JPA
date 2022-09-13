@@ -2,9 +2,14 @@ server:
   port: 9000
   
 spring:
+   application:
+      name: gateway
    cloud:
-    gateway:
-     globalcors:
+     gateway:
+      httpclient:
+        connect-timeout: 2000
+        response-timeout: 5s
+      globalcors:
         cors-configurations:
           '[/**]':
             allowedOrigins: "http://localhost:4200"
@@ -12,116 +17,130 @@ spring:
             allowedMethods:
             - POST
             - GET
-     routes:
-     - id: allPersons
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/all
-       filters:
-       - RewritePath=/api/service/person/all, /allPersons
-       
-     - id: findPerson
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/find
-       filters:
-       - RewritePath=/api/service/person/find, /findPerson
-       
-     - id: addPerson
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/add
-       filters:
-       - RewritePath=/api/service/person/add, /addPerson
-       
-     - id: updatePerson
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/update
-       filters:
-       - RewritePath=/api/service/person/update, /updatePerson
-       
-     - id: deletePerson
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/delete 
-       filters:
-       - RewritePath=/api/service/person/delete, /deletePerson
-       
-     - id: orderLowToHighMoney
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/order/money/lowtohigh
-       filters:
-       - RewritePath=/api/service/person/order/money/lowtohigh, /orderLowToHighMoney
-       
-     - id: orderHighToLowMoney
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/order/money/hightolow
-       filters:
-       - RewritePath=/api/service/person/order/money/hightolow, /orderHighToLowMoney
-       
-     - id: orderLowToHighAge
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/order/age/lowtohigh
-       filters:
-       - RewritePath=/api/service/person/order/age/lowtohigh, /orderLowToHighAge
-       
-     - id: orderHighToLowAge
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/order/age/hightolow
-       filters:
-       - RewritePath=/api/service/person/order/age/hightolow, /orderHighToLowAge
-       
-     - id: findPersonByNationality
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/find/by/nationality
-       filters:
-       - RewritePath=/api/service/person/find/by/nationality, /findPersonByNationality
-       
-     - id: findPersonByNationalityAndOrderLowToHighMoney
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/order/money/lowtohigh/and/nationality
-       filters:
-       - RewritePath=/api/service/person/order/money/lowtohigh/and/nationality, /findPersonByNationalityAndOrderLowToHighMoney
-       
-     - id: findPersonByNationalityAndOrderHighToLowMoney
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/order/money/hightolow/and/nationality
-       filters:
-       - RewritePath=/api/service/person/order/money/hightolow/and/nationality, /findPersonByNationalityAndOrderHighToLowMoney
-     
-     - id: findPersonByNationalityAndOrderLowToHighAge
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/order/age/lowtohigh/and/nationality
-       filters:
-       - RewritePath=/api/service/person/order/age/lowtohigh/and/nationality, /findPersonByNationalityAndOrderLowToHighAge
-         
-     - id: findPersonByNationalityAndOrderHighToLowAge
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/order/age/hightolow/and/nationality
-       filters:
-       - RewritePath=/api/service/person/order/age/hightolow/and/nationality, /findPersonByNationalityAndOrderHighToLowAge
-            
-     - id: findPersonsAvailableToTransfer
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/available/transfer  
-       filters:
-       - RewritePath=/api/service/person/available/transfer, /findPersonsAvailableToTransfer
-       
-     - id: moneytransfer
-       uri: http://localhost:8080  
-       predicates:
-       - Path=/api/service/person/transfer       
-       filters:
-       - RewritePath=/api/service/person/transfer, /moneytransfer
-     
+      routes:
+        - id: allPersons
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/all
+          filters:
+           - RewritePath=/api/service/person/all, /allPersons
+
+           
+        - id: findPerson
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/find
+          filters:
+           - RewritePath=/api/service/person/find, /findPerson
+
+           
+        - id: addPerson
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/add
+          filters:
+           - RewritePath=/api/service/person/add, /addPerson
+
+           
+        - id: updatePerson
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/update
+          filters:
+           - RewritePath=/api/service/person/update, /updatePerson
+
+           
+        - id: deletePerson
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/delete 
+          filters:
+           - RewritePath=/api/service/person/delete, /deletePerson
+
+           
+        - id: orderLowToHighMoney
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/order/money/lowtohigh
+          filters:
+           - RewritePath=/api/service/person/order/money/lowtohigh, /orderLowToHighMoney
+
+           
+        - id: orderHighToLowMoney
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/order/money/hightolow
+          filters:
+           - RewritePath=/api/service/person/order/money/hightolow, /orderHighToLowMoney
+
+           
+        - id: orderLowToHighAge
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/order/age/lowtohigh
+          filters:
+           - RewritePath=/api/service/person/order/age/lowtohigh, /orderLowToHighAge
+
+
+        - id: orderHighToLowAge
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/order/age/hightolow
+          filters:
+           - RewritePath=/api/service/person/order/age/hightolow, /orderHighToLowAge
+
+           
+        - id: findPersonByNationality
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/find/by/nationality
+          filters:
+           - RewritePath=/api/service/person/find/by/nationality, /findPersonByNationality
+
+           
+        - id: findPersonByNationalityAndOrderLowToHighMoney
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/order/money/lowtohigh/and/nationality
+          filters:
+           - RewritePath=/api/service/person/order/money/lowtohigh/and/nationality, /findPersonByNationalityAndOrderLowToHighMoney
+
+           
+        - id: findPersonByNationalityAndOrderHighToLowMoney
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/order/money/hightolow/and/nationality
+          filters:
+           - RewritePath=/api/service/person/order/money/hightolow/and/nationality, /findPersonByNationalityAndOrderHighToLowMoney
+
+           
+        - id: findPersonByNationalityAndOrderLowToHighAge
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/order/age/lowtohigh/and/nationality
+          filters:
+           - RewritePath=/api/service/person/order/age/lowtohigh/and/nationality, /findPersonByNationalityAndOrderLowToHighAge
+
+           
+        - id: findPersonByNationalityAndOrderHighToLowAge
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/order/age/hightolow/and/nationality
+          filters:
+           - RewritePath=/api/service/person/order/age/hightolow/and/nationality, /findPersonByNationalityAndOrderHighToLowAge
+
+             
+        - id: findPersonsAvailableToTransfer
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/available/transfer  
+          filters:
+           - RewritePath=/api/service/person/available/transfer, /findPersonsAvailableToTransfer
+
+           
+        - id: moneytransfer
+          uri: http://localhost:8080  
+          predicates:
+           - Path=/api/service/person/transfer       
+          filters:
+           - RewritePath=/api/service/person/transfer, /moneytransfer
