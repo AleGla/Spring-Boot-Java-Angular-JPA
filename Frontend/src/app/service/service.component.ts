@@ -11,23 +11,23 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-  private URL = "http://localhost:8080/";
-  private PATH_ALLPEOPLE = "allPersons";
-  private PATH_FINDBYID = "findPerson";
-  private PATH_ADD = "addPerson";
-  private PATH_UPDATE = "updatePerson";
-  private PATH_DELETE = "deletePerson";
-  private PATH_ORDERLOWTOHIGHMONEY = "orderLowToHighMoney";
-  private PATH_ORDERHIGHTOLOWMONEY = "orderHighToLowMoney";
-  private PATH_ORDERLOWTOHIGHAGE = "orderLowToHighAge";
-  private PATH_ORDERHIGHTOLOWAGE = "orderHighToLowAge";
-  private PATH_FINDPERSONBYNATIONALITY = "findPersonByNationality";
-  private PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHMONEY = "findPersonByNationalityAndOrderLowToHighMoney";
-  private PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWMONEY = "findPersonByNationalityAndOrderHighToLowMoney";
-  private PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHAGE = "findPersonByNationalityAndOrderLowToHighAge";
-  private PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWAGE = "findPersonByNationalityAndOrderHighToLowAge";
-  private PATH_FINDAVAILABLEPERSONTOTRANSFER = "findPersonsAvailableToTransfer";
-  private PATH_MONEYTRANSFER = "moneytransfer";
+  private URL = "http://localhost:9000/api/service/person";
+  private PATH_ALLPEOPLE = "/all";
+  private PATH_FINDBYID = "/find";
+  private PATH_ADD = "/add";
+  private PATH_UPDATE = "/update";
+  private PATH_DELETE = "/delete";
+  private PATH_ORDERLOWTOHIGHMONEY = "/order/money/lowtohigh";
+  private PATH_ORDERHIGHTOLOWMONEY = "/order/money/hightolow";
+  private PATH_ORDERLOWTOHIGHAGE = "/order/age/lowtohigh";
+  private PATH_ORDERHIGHTOLOWAGE = "/order/age/hightolow";
+  private PATH_FINDPERSONBYNATIONALITY = "/find/by/nationality";
+  private PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHMONEY = "/order/money/lowtohigh/and/nationality";
+  private PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWMONEY = "/order/money/hightolow/and/nationality";
+  private PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHAGE = "/order/age/lowtohigh/and/nationality";
+  private PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWAGE = "/order/age/hightolow/and/nationality";
+  private PATH_FINDAVAILABLEPERSONTOTRANSFER = "/available/transfer";
+  private PATH_MONEYTRANSFER = "/transfer";
 
   getAllPeople() {
     return this.http.get<Object[]>(this.URL + this.PATH_ALLPEOPLE);
@@ -70,19 +70,19 @@ export class ServiceService {
    }
 
    findPersonByNationalityAndOrderLowToHighMoney(obj: object){
-    return this.http.post<Object>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHMONEY, obj);
+    return this.http.post<Object[]>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHMONEY, obj);
    }
 
    findPersonByNationalityAndOrderHighToLowMoney(obj: object){
-    return this.http.post<Object>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWMONEY, obj);
+    return this.http.post<Object[]>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWMONEY, obj);
    }
 
    findPersonByNationalityAndOrderLowToHighAge(obj: object){
-    return this.http.post<Object>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHAGE, obj);
+    return this.http.post<Object[]>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERLOWTOHIGHAGE, obj);
    }
 
    findPersonByNationalityAndOrderHighToLowAge(obj: object){
-    return this.http.post<Object>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWAGE, obj);
+    return this.http.post<Object[]>(this.URL + this.PATH_FINDPERSONBYNATIONALITYANDORDERHIGHTOLOWAGE, obj);
    }
 
    findPersonsAvailableToTransfer(obj: object){

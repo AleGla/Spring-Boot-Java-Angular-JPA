@@ -22,7 +22,7 @@ import com.ar.alegla.service.IPersonService;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class PersonController {
 
 	private static final Logger log = LoggerFactory.getLogger(PersonController.class);
