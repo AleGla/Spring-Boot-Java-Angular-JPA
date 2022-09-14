@@ -1,6 +1,11 @@
 server:
   port: 9000
   
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka   
+  
 spring:
    application:
       name: gateway
